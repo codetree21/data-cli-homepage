@@ -121,8 +121,14 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
 					);
 				} else {
 					try {
+						let loading = "Loading.";
+						const intervalId = setInterval(() => {
+							loading += ".";
+							setHistory(loading);
+						}, 100);
 						const output = await bin[cmd](args);
-
+	
+						clearInterval(intervalId);
 						setHistory(output);
 					} catch (error) {
 						setHistory(error.message);

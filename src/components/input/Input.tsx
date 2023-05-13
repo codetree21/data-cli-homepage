@@ -79,7 +79,9 @@ export const Input = ({ inputRef, containerRef }) => {
 			setCommand(value);
 			setDynamicCommand("");
 
-			setValue("");
+			setTimeout(() => {
+				setValue("");
+			}, 50);
 			setCurrentSelection(0);
 		} else if (event.key === "ArrowUp") {
 			event.preventDefault();
