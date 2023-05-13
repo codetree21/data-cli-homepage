@@ -17,7 +17,10 @@ interface ShellContextType {
 	executeDynamic: (command: string) => Promise<void>;
 	clearHistory: () => void;
 	clearDynamicHistory: () => void;
+	username: string;
 }
+
+export const DEFAULT_USER = "guest";
 
 const ShellContext = React.createContext<ShellContextType>(null);
 
@@ -35,9 +38,13 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
 	const [dynamicCommand, _setDynamicCommand] = React.useState<string>("");
 	const [lastCommandIndex, _setLastCommandIndex] = React.useState<number>(0);
 	const { setTheme } = useTheme();
+	const [username, setUsername] = React.useState<string>(DEFAULT_USER);
 
 	useEffect(() => {
 		setCommand("banner");
+		if(localStorage.getItem("username")) {
+			setUsername(localStorage.getItem("username"));
+		}
 	}, []);
 
 	useEffect(() => {
@@ -154,6 +161,7 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
 				executeDynamic,
 				clearHistory,
 				clearDynamicHistory,
+				username: username || DEFAULT_USER,
 			}}
 		>
 			{children}

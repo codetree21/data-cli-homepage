@@ -1,5 +1,5 @@
-import packageJson from "../../../package.json";
 import * as bin from "./index";
+import {DEFAULT_USER} from "../../utils/shellProvider";
 
 export const help = async (args: string[]): Promise<string> => {
 	const commands = Object.keys(bin).sort().join(", ");
@@ -12,7 +12,7 @@ export const echo = async (args: string[]): Promise<string> => {
 };
 
 export const whoami = async (args: string[]): Promise<string> => {
-	return "guest";
+	return localStorage.getItem("username") ?? DEFAULT_USER;
 };
 
 export const date = async (args: string[]): Promise<string> => {
@@ -43,12 +43,14 @@ export const repo = async (args?: string[]): Promise<string> => {
 
 export const banner = (args?: string[]): string => {
 	return `
-██████╗ ███████╗███████╗████████╗ █████╗  ██████╗ 
-██╔══██╗██╔════╝██╔════╝╚══██╔══╝██╔══██╗██╔═══██╗
-██║  ██║█████╗  ███████╗   ██║   ███████║██║   ██║
-██║  ██║██╔══╝  ╚════██║   ██║   ██╔══██║██║▄▄ ██║
-██████╔╝███████╗███████║   ██║   ██║  ██║╚██████╔╝
-╚═════╝ ╚══════╝╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚══▀▀═╝  v${packageJson.version}
+'########:::::'###:::::'######::'##:::'##::'######::'########:::::'###:::::'######::'########:
+ ##.... ##:::'## ##:::'##... ##: ##::'##::'##... ##: ##.... ##:::'## ##:::'##... ##: ##.....::
+ ##:::: ##::'##:. ##:: ##:::..:: ##:'##::: ##:::..:: ##:::: ##::'##:. ##:: ##:::..:: ##:::::::
+ ########::'##:::. ##: ##::::::: #####::::. ######:: ########::'##:::. ##: ##::::::: ######:::
+ ##.... ##: #########: ##::::::: ##. ##::::..... ##: ##.....::: #########: ##::::::: ##...::::
+ ##:::: ##: ##.... ##: ##::: ##: ##:. ##::'##::: ##: ##:::::::: ##.... ##: ##::: ##: ##:::::::
+ ########:: ##:::: ##:. ######:: ##::. ##:. ######:: ##:::::::: ##:::: ##:. ######:: ########:
+........:::..:::::..:::......:::..::::..:::......:::..:::::::::..:::::..:::......:::........::
 
 Type 'help' to see list of available commands.
 

@@ -31,9 +31,8 @@ const IndexPage: React.FC<IndexPageProps> = ({ inputRef }) => {
 	return (
 		<>
 			<Head>
-				<title>CLI Startpage</title>
+				<title>[← Backspace; 더 멀리 나아가는 방법] 반상회</title>
 			</Head>
-
 			<div
 				className="overflow-hidden h-full rounded"
 				style={{
@@ -44,7 +43,6 @@ const IndexPage: React.FC<IndexPageProps> = ({ inputRef }) => {
 			>
 				<div ref={containerRef} className="overflow-y-auto h-full">
 					<History history={history} />
-
 					<Input inputRef={inputRef} containerRef={containerRef} />
 				</div>
 			</div>

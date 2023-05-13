@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useTheme } from "../../utils/themeProvider";
+import {useShell} from "../../utils/shellProvider";
 
 export const Ps1 = () => {
 	const [hostname, setHostname] = useState("");
 	const { theme } = useTheme();
+	const { username } = useShell();
 
 	useEffect(() => {
 		if (typeof window !== undefined) {
@@ -18,7 +20,7 @@ export const Ps1 = () => {
 					color: theme.yellow,
 				}}
 			>
-				guest
+				{username}
 			</span>
 			<span
 				style={{
