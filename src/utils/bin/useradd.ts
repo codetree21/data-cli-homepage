@@ -10,7 +10,7 @@ export const useradd = async (args: string[]): Promise<string> => {
 	}
 
 	try {
-		await axios.post("/cli-homepage/api/login", {
+		await axios.post("/api/login", {
 			username: args[0],
 		});
 	} catch (e) {

@@ -1,3 +1,1 @@
-module.exports = {
-	basePath: "/cli-homepage",
-};
+module.exports = {};
