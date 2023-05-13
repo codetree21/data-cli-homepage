@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTheme } from "../../utils/themeProvider";
-import {useShell} from "../../utils/shellProvider";
+import { useShell } from "../../utils/shellProvider";
 
 export const Ps1 = () => {
 	const [hostname, setHostname] = useState("");

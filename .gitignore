@@ -46,3 +46,5 @@ build/
 
 # Future extensions
 IDEAS
+
+.env.development

@@ -42,7 +42,7 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
 
 	useEffect(() => {
 		setCommand("banner");
-		if(localStorage.getItem("username")) {
+		if (localStorage.getItem("username")) {
 			setUsername(localStorage.getItem("username"));
 		}
 	}, []);

@@ -1,4 +1,3 @@
-import { useMatomo } from "@m4tt72/matomo-tracker-react";
 import React, { useEffect, useState } from "react";
 import { commandExists } from "../../utils/commandExists";
 import { useShell } from "../../utils/shellProvider";
@@ -12,7 +11,6 @@ import { Live } from "../live";
 import { search } from "../../utils/bin";
 
 export const Input = ({ inputRef, containerRef }) => {
-	const { trackEvent } = useMatomo();
 	const { theme } = useTheme();
 	const [value, setValue] = useState("");
 	const [currentSelection, setCurrentSelection] = useState(0);
@@ -99,11 +97,6 @@ export const Input = ({ inputRef, containerRef }) => {
 
 			setValue("");
 			setCurrentSelection(0);
-
-			trackEvent({
-				category: "Command Executed",
-				action: value || "no command",
-			});
 		} else if (event.key === "ArrowUp") {
 			event.preventDefault();
 

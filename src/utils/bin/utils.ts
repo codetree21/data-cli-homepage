@@ -1,5 +1,5 @@
 import * as bin from "./index";
-import {DEFAULT_USER} from "../../utils/shellProvider";
+import { DEFAULT_USER } from "../../utils/shellProvider";
 
 export const help = async (args: string[]): Promise<string> => {
 	const commands = Object.keys(bin).sort().join(", ");
@@ -15,30 +15,24 @@ export const whoami = async (args: string[]): Promise<string> => {
 	return localStorage.getItem("username") ?? DEFAULT_USER;
 };
 
-export const date = async (args: string[]): Promise<string> => {
-	return new Date().toString();
+export const cotemaster = async (args: string[]): Promise<string> => {
+	window.open("https://www.codetree.ai");
+
+	return "Opening Codetree...";
 };
 
-export const email = async (args: string[]): Promise<string> => {
-	window.open("mail.google.com");
+export const review = async (args: string[]): Promise<string> => {
+	window.open("https://blog.chavo.dev");
 
-	return "Opening Gmail...";
+	return "Opening Review Form...";
 };
 
 export const sudo = async (args?: string[]): Promise<string> => {
-	setTimeout(function() {
+	setTimeout(function () {
 		window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
 	}, 1000);
 
 	return `Permission denied: unable to run the command '${args[0]}' as root.`;
-};
-
-export const repo = async (args?: string[]): Promise<string> => {
-	setTimeout(function() {
-		window.open("https://github.com/Destaq/cli-homepage", "_blank");
-	}, 1000);
-
-	return "Opening repository...";
 };
 
 export const banner = (args?: string[]): string => {
@@ -58,7 +52,6 @@ Type 'help' to see list of available commands.
 The project is open-source 🎉 type 'repo' to check out the repository.
 
 New 🎉: Try out the new 'theme' command. See all available themes <a href="https://github.com/Destaq/cli-homepage/tree/master/docs/themes">in the docs</a>.
-New 🎉: New command 'neofetch', for you linux.
 --
 `;
 };
