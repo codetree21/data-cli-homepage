@@ -14,7 +14,6 @@ interface ShellContextType {
 	setDynamicHistory: (output: string) => void;
 	setLastCommandIndex: (index: number) => void;
 	execute: (command: string) => Promise<void>;
-	executeDynamic: (command: string) => Promise<void>;
 	clearHistory: () => void;
 	clearDynamicHistory: () => void;
 	username: string;
@@ -52,10 +51,6 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
 			execute();
 		}
 	}, [command, init]);
-
-	useEffect(() => {
-		executeDynamic();
-	}, [dynamicCommand]);
 
 	const setHistory = (output: string) => {
 		_setHistory([
@@ -150,7 +145,6 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
 				setDynamicHistory,
 				setLastCommandIndex,
 				execute,
-				executeDynamic,
 				clearHistory,
 				clearDynamicHistory,
 				username: username || DEFAULT_USER,
