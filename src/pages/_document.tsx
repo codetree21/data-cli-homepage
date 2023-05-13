@@ -95,7 +95,11 @@ class MyDocument extends Document {
 						content="/ms-icon-144x144.png"
 					/>
 					<meta name="theme-color" content="#D79921" />
-					<meta name="description" content="M4TT72 | Yassine Fathi" />
+					<meta name="title" content="Backspace - 2023" />
+					<meta
+						name="description"
+						content="Backspace; The way to move further"
+					/>
 				</Head>
 
 				<body>
