@@ -99,7 +99,7 @@ export const Input = ({ inputRef, containerRef }) => {
 	};
 
 	return (
-		<div>
+		<>
 			<div className="flex flex-row space-x-2">
 				<label htmlFor="prompt" className="shrink-0">
 					<Ps1 />
@@ -109,7 +109,7 @@ export const Input = ({ inputRef, containerRef }) => {
 					ref={inputRef}
 					id="prompt"
 					type="text"
-					className="focus:outline-none flex-grow"
+					className="focus:outline-none flex-grow min-w-0"
 					aria-label="prompt"
 					style={{
 						backgroundColor: theme.background,
@@ -127,7 +127,7 @@ export const Input = ({ inputRef, containerRef }) => {
 					autoCapitalize="off"
 				/>
 			</div>
-		</div>
+		</>
 	);
 };
 

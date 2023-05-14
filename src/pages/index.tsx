@@ -36,7 +36,10 @@ const IndexPage: React.FC<IndexPageProps> = ({ inputRef }) => {
 					borderWidth: config.border ? 2 : 0,
 				}}
 			>
-				<div ref={containerRef} className="overflow-y-auto h-full">
+				<div
+					ref={containerRef}
+					className="overflow-y-auto h-full overflow-x-hidden"
+				>
 					{!dynamicHistory ? (
 						<>
 							<History history={history} />

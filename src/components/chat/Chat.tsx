@@ -16,7 +16,7 @@ const Chat = ({ inputRef }) => {
 	return (
 		<div className={"relative h-full"}>
 			<p className={"whitespace-pre-wrap"}>{chats?.join("\n")}</p>
-			<div className={"absolute bottom-0"}>
+			<div className={"absolute bottom-0 w-full"}>
 				<VimInput inputRef={inputRef} />
 			</div>
 		</div>
