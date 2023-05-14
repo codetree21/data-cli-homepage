@@ -55,12 +55,12 @@ const VimInput = ({ inputRef }) => {
 
 	return (
 		<div>
-			<div 
+			<div
 				className="flex flex-row"
-				 style={{
-					 backgroundColor: theme.background,
-					 color: theme.foreground,
-				 }}
+				style={{
+					backgroundColor: theme.background,
+					color: theme.foreground,
+				}}
 			>
 				<label htmlFor="prompt" className="flex-shrink">
 					:
