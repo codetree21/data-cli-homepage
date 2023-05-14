@@ -25,7 +25,7 @@ const App = ({ Component, pageProps }) => {
 				<Head>
 					<meta
 						name="viewport"
-						content="initial-scale=1.0, width=device-width"
+						content="initial-scale=1.0,width=device-width,user-scalable=no,maximum-scale=1"
 						key="viewport"
 					/>
 				</Head>

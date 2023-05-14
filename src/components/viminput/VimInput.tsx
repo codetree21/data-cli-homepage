@@ -55,7 +55,13 @@ const VimInput = ({ inputRef }) => {
 
 	return (
 		<div>
-			<div className="flex flex-row">
+			<div 
+				className="flex flex-row"
+				 style={{
+					 backgroundColor: theme.background,
+					 color: theme.foreground,
+				 }}
+			>
 				<label htmlFor="prompt" className="flex-shrink">
 					:
 				</label>
@@ -65,10 +71,6 @@ const VimInput = ({ inputRef }) => {
 					type="text"
 					className="focus:outline-none flex-grow"
 					aria-label="prompt"
-					style={{
-						backgroundColor: theme.background,
-						color: theme.foreground,
-					}}
 					value={value}
 					onChange={(event) => handleChange(event)}
 					autoFocus
@@ -76,6 +78,10 @@ const VimInput = ({ inputRef }) => {
 					autoComplete="off"
 					autoCorrect="off"
 					autoCapitalize="off"
+					style={{
+						backgroundColor: theme.background,
+						color: theme.foreground,
+					}}
 				/>
 			</div>
 		</div>
