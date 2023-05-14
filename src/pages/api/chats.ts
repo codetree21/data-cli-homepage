@@ -1,6 +1,6 @@
 import { kv } from "@vercel/kv";
 
-const key = "chat-1";
+const key = "chat-2";
 
 export default async function handler(req, res) {
 	if (req.method === "GET") {
