@@ -101,7 +101,7 @@ export const Input = ({ inputRef, containerRef }) => {
 	return (
 		<div>
 			<div className="flex flex-row space-x-2">
-				<label htmlFor="prompt" className="flex-shrink">
+				<label htmlFor="prompt" className="shrink-0">
 					<Ps1 />
 				</label>
 
