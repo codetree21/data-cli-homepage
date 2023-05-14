@@ -5,13 +5,14 @@ import { Input } from "../components/input";
 import { useShell } from "../utils/shellProvider";
 import { useTheme } from "../utils/themeProvider";
 import config from "../../config.json";
+import { Chat } from "../components/chat";
 
 interface IndexPageProps {
 	inputRef: React.MutableRefObject<HTMLInputElement>;
 }
 
 const IndexPage: React.FC<IndexPageProps> = ({ inputRef }) => {
-	const { history } = useShell();
+	const { history, dynamicHistory } = useShell();
 	const { theme } = useTheme();
 
 	const containerRef = React.useRef(null);
@@ -36,8 +37,17 @@ const IndexPage: React.FC<IndexPageProps> = ({ inputRef }) => {
 				}}
 			>
 				<div ref={containerRef} className="overflow-y-auto h-full">
-					<History history={history} />
-					<Input inputRef={inputRef} containerRef={containerRef} />
+					{!dynamicHistory ? (
+						<>
+							<History history={history} />
+							<Input
+								inputRef={inputRef}
+								containerRef={containerRef}
+							/>
+						</>
+					) : (
+						<Chat inputRef={inputRef} />
+					)}
 				</div>
 			</div>
 		</>

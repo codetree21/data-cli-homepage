@@ -52,6 +52,10 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
 		}
 	}, [command, init]);
 
+	useEffect(() => {
+		if (!!dynamicCommand) dynamicExecute();
+	}, [dynamicCommand]);
+
 	const setHistory = (output: string) => {
 		_setHistory([
 			...history,
@@ -74,10 +78,12 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
 	};
 
 	const setDynamicCommand = (command: string) => {
-		// Live updated commands go here.
-		if (command.split(" ")[0] === "search") {
-			_setDynamicCommand([Date.now(), command].join(" "));
+		if (command === "") {
+			_setDynamicCommand("");
+			return;
 		}
+
+		_setDynamicCommand([Date.now(), command].join(" "));
 	};
 
 	const setCommand = (command: string) => {
@@ -96,6 +102,12 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
 
 	const setLastCommandIndex = (index: number) => {
 		_setLastCommandIndex(index);
+	};
+
+	const dynamicExecute = async () => {
+		const [cmd, ...args] = dynamicCommand.split(" ").slice(1);
+
+		setDynamicHistory(null);
 	};
 
 	const execute = async () => {
@@ -127,7 +139,7 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
 							setHistory(loading);
 						}, 100);
 						const output = await bin[cmd](args);
-	
+
 						clearInterval(intervalId);
 						setHistory(output);
 					} catch (error) {

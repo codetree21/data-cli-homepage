@@ -4,6 +4,9 @@ import { Layout } from "../components/layout";
 import "../styles/global.css";
 import { ShellProvider } from "../utils/shellProvider";
 import { ThemeProvider } from "../utils/themeProvider";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 const App = ({ Component, pageProps }) => {
 	const inputRef = React.useRef<HTMLInputElement>(null);
@@ -26,10 +29,11 @@ const App = ({ Component, pageProps }) => {
 						key="viewport"
 					/>
 				</Head>
-
-				<Layout onClick={onClickAnywhere}>
-					<Component {...pageProps} inputRef={inputRef} />
-				</Layout>
+				<QueryClientProvider client={queryClient}>
+					<Layout onClick={onClickAnywhere}>
+						<Component {...pageProps} inputRef={inputRef} />
+					</Layout>
+				</QueryClientProvider>
 			</ShellProvider>
 		</ThemeProvider>
 	);

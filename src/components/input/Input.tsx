@@ -1,22 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { commandExists } from "../../utils/commandExists";
 import { useShell } from "../../utils/shellProvider";
-import {
-	handleDynamicChoice,
-	handleTabCompletion,
-} from "../../utils/tabCompletion";
+import { handleTabCompletion } from "../../utils/tabCompletion";
 import { useTheme } from "../../utils/themeProvider";
 import { Ps1 } from "../ps1";
-import { Live } from "../live";
 
 export const Input = ({ inputRef, containerRef }) => {
 	const { theme } = useTheme();
 	const [value, setValue] = useState("");
-	const [currentSelection, setCurrentSelection] = useState(0);
 	const {
 		setCommand,
 		setDynamicCommand,
-		setDynamicHistory,
 		history,
 		dynamicHistory,
 		lastCommandIndex,
@@ -36,7 +30,6 @@ export const Input = ({ inputRef, containerRef }) => {
 	}, [value]);
 
 	const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-		setDynamicCommand(event.target.value);
 		setValue(event.target.value);
 	};
 
@@ -60,29 +53,19 @@ export const Input = ({ inputRef, containerRef }) => {
 			event.preventDefault();
 
 			handleTabCompletion(value, setValue);
-
-			if (dynamicHistory !== null) {
-				// Cycle through dynamic history list items.
-				let out = handleDynamicChoice(
-					dynamicHistory.output,
-					currentSelection,
-					theme,
-				);
-				setDynamicHistory(out[0]);
-				setCurrentSelection(out[1]);
-			}
 		} else if (event.key === "Enter" || event.code === "13") {
 			event.preventDefault();
-			
+
 			setLastCommandIndex(0);
 
+			if (value.includes("chat")) {
+				setDynamicCommand(value);
+			}
 			setCommand(value);
-			setDynamicCommand("");
 
 			setTimeout(() => {
 				setValue("");
 			}, 50);
-			setCurrentSelection(0);
 		} else if (event.key === "ArrowUp") {
 			event.preventDefault();
 
@@ -112,8 +95,6 @@ export const Input = ({ inputRef, containerRef }) => {
 				setLastCommandIndex(0);
 				setValue("");
 			}
-		} else {
-			setCurrentSelection(0);
 		}
 	};
 
@@ -146,7 +127,6 @@ export const Input = ({ inputRef, containerRef }) => {
 					autoCapitalize="off"
 				/>
 			</div>
-			<Live history={dynamicHistory} />
 		</div>
 	);
 };

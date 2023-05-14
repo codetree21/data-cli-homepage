@@ -11,6 +11,10 @@ export const echo = async (args: string[]): Promise<string> => {
 	return args.join(" ");
 };
 
+export const chat = async (args: string[]): Promise<string> => {
+	return "Chat Opened";
+};
+
 export const whoami = async (args: string[]): Promise<string> => {
 	return localStorage.getItem("username") ?? DEFAULT_USER;
 };
@@ -32,13 +36,15 @@ export const sudo = async (args?: string[]): Promise<string> => {
 };
 
 export const repo = async (args?: string[]): Promise<string> => {
-	setTimeout(function() {
-		window.open("https://github.com/chavokim/backspace-cli-homepage", "_blank");
+	setTimeout(function () {
+		window.open(
+			"https://github.com/chavokim/backspace-cli-homepage",
+			"_blank",
+		);
 	}, 1000);
 
 	return "Opening repository...";
 };
-
 
 export const banner = (args?: string[]): string => {
 	return `
