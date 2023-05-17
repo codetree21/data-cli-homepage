@@ -34,7 +34,7 @@ async function listUsers(auth) {
 
 async function updateUser(auth, rowIdx) {
 	const sheets = google.sheets({ version: "v4", auth });
-	const response = await sheets.spreadsheets.values.update({
+	sheets.spreadsheets.values.update({
 		spreadsheetId: "1CoFrSX0U5AwWULnjyDtVN-aRXizDmWor8k31S5XfeUo",
 		range: `Sheet1!B${2 + rowIdx}`,
 		valueInputOption: "RAW",

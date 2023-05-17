@@ -15,7 +15,7 @@ export const useradd = async (args: string[]): Promise<string> => {
 		});
 	} catch (e) {
 		if (e.response.status === 401) {
-			return "등록되지 않은 사용자입니다.";
+			return "등록되지 않은 사용자입니다. (스태프에게 문의해주세요.)";
 		}
 
 		return "로그인 서버에 문제가 발생했습니다.";

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { commandExists } from "../../utils/commandExists";
-import { useShell } from "../../utils/shellProvider";
+import { DEFAULT_USER, useShell } from "../../utils/shellProvider";
 import { handleTabCompletion } from "../../utils/tabCompletion";
 import { useTheme } from "../../utils/themeProvider";
 import { Ps1 } from "../ps1";
@@ -17,6 +17,7 @@ export const Input = ({ inputRef, containerRef }) => {
 		setLastCommandIndex,
 		clearHistory,
 		clearDynamicHistory,
+		username,
 	} = useShell();
 
 	useEffect(() => {
@@ -58,7 +59,7 @@ export const Input = ({ inputRef, containerRef }) => {
 
 			setLastCommandIndex(0);
 
-			if (value.includes("chat")) {
+			if (value.includes("chat") && username !== DEFAULT_USER) {
 				setDynamicCommand(value);
 			}
 			setCommand(value);
