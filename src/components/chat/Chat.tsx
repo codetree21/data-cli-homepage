@@ -13,8 +13,6 @@ const Chat = ({ inputRef }) => {
 		refetchInterval: 1000,
 	});
 
-	const theme = useTheme();
-
 	return (
 		<div className={"relative h-full"}>
 			{chats ? (
