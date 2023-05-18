@@ -2,7 +2,6 @@ import React from "react";
 import { VimInput } from "../../components/viminput";
 import { useQuery } from "react-query";
 import axios from "axios";
-import { useTheme } from "src/utils/themeProvider";
 
 const Chat = ({ inputRef }) => {
 	const { data: chats } = useQuery({
