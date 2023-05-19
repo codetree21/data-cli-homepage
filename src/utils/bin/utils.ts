@@ -87,7 +87,7 @@ export const cotemaster = async (args: string[]): Promise<string> => {
 };
 
 export const review = async (args: string[]): Promise<string> => {
-	window.open("https://blog.chavo.dev");
+	window.open("https://forms.gle/EAgcQh9gE9mpiMwQ7");
 
 	return "Opening Review Form...";
 };
@@ -129,6 +129,29 @@ export const banner = (args?: string[]): string => {
 </div>
 반갑습니다. :) 'useradd \<이름\>'을 입력해서 로그인해주세요.
 
-'help'를 입력하면 다른 명령어들을 확인할 수 있습니다.
+'help'를 입력하시면 여러 기능이 있답니다~!
+이스터에그도 있으니 찾아보셔요.
 `;
+};
+
+export const staff = (args?: string[]): string => {
+	let msg = "";
+
+	msg +=
+		"임지훈(인프라): 재능 넘치는 준비위 여러분들과 함께 준비할 수 있어 영광이었습니다.♡♡♡\n";
+	msg += "김소라(백엔드d): 덕분에 즐겁게 참여했습니다! 준비위 최고!\n";
+	msg +=
+		"임지영(프론트c): 행사 소비자에서 생산자가 되어본 멋찐경험! 다들 고생하셨습니다!! (다음엔 더 잘.. 해볼거에유..ㅎㅎ)\n";
+	msg +=
+		"임성후(백엔드d): 열정 넘치는 분들 덕분에 즐겁게 행사 준비할 수 있었습니다!! 글또 최고 ♡\n";
+	msg +=
+		"변성윤 : 여러분들이 모두 도와주시고, 와주셔서 모두 잘 만들 수 있었어요. 감사합니다\n";
+	msg +=
+		"김동인(백엔드b): 준비하는 과정이 재미있어서 행사가 더욱 기대됩니다! 고생했어요 다들!!\n";
+	msg +=
+		"강나영(백엔드g): 준비위 여러분 마지막까지 파이팅! 준비위 최고 글또 여러분도 최고 ♡\n";
+	msg +=
+		"김재휘(백엔드a): 7기 글또콘에서는 준비된걸 즐기기만 했는데, 8기에선 반상회 진행을 하면서 준비위의 노고에 다시 한번 알게 되었습니다. :) 다들 재밌게 즐겨주시면 좋겠습니다 ㅎㅎ\n";
+
+	return msg;
 };
