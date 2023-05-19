@@ -12,6 +12,8 @@ const Chat = ({ inputRef }) => {
 			return data;
 		},
 		refetchInterval: 1000,
+		cacheTime: 0,
+		staleTime: 0,
 	});
 
 	const { theme } = useTheme();
