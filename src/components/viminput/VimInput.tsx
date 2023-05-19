@@ -30,7 +30,12 @@ const VimInput = ({ inputRef }) => {
 	const onSubmit = async (event: React.KeyboardEvent<HTMLInputElement>) => {
 		if (
 			(event.key === "c" && event.ctrlKey) ||
-			((event.key === "Enter" || event.code === "13") && value === "q")
+			((event.key === "Enter" || event.code === "13") && value === "q") ||
+			((event.key === "Enter" || event.code === "13") &&
+				value === "q!") ||
+			((event.key === "Enter" || event.code === "13") &&
+				value === "wq") ||
+			((event.key === "Enter" || event.code === "13") && value === "wq!")
 		) {
 			event.preventDefault();
 
@@ -47,8 +52,15 @@ const VimInput = ({ inputRef }) => {
 				return;
 			}
 
+			const today = new Date();
+
 			setValue("");
-			mutate({ chat: `${username}: ${value}` });
+			mutate({
+				chat: `[${today.toLocaleString("ko-KR", {
+					timeZone: "Asia/Seoul",
+					timeStyle: "medium",
+				})}] ${username}: ${value}`,
+			});
 			return;
 		}
 	};

@@ -1,6 +1,6 @@
 import redis from "../../utils/redis";
 
-const key = "chat-3";
+const key = "chat-4";
 
 export default async function handler(req, res) {
 	if (req.method === "GET") {

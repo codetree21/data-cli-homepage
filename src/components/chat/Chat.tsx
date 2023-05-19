@@ -2,6 +2,7 @@ import React from "react";
 import { VimInput } from "../../components/viminput";
 import { useQuery } from "react-query";
 import axios from "axios";
+import { useTheme } from "../../utils/themeProvider";
 
 const Chat = ({ inputRef }) => {
 	const { data: chats } = useQuery({
@@ -13,8 +14,23 @@ const Chat = ({ inputRef }) => {
 		refetchInterval: 1000,
 	});
 
+	const { theme } = useTheme();
+
 	return (
 		<div className={"relative h-full"}>
+			<div
+				className="sticky top-0"
+				style={{
+					backgroundColor: theme.background,
+					color: theme.foreground,
+				}}
+			>
+				연사분께 궁금한걸 입력하고 엔터를 눌러주세요! <br />
+				[ctrl+c]를 누르거나 &apos;q&apos;, &apos;q!&apos;,
+				&apos;wq&apos;, &apos;wq!&apos;를 입력하면 채팅을 종료합니다.{" "}
+				<br />
+				----------------------------------------------
+			</div>
 			{chats ? (
 				<p className={"whitespace-pre-wrap"}>{chats?.join("\n")}</p>
 			) : (
