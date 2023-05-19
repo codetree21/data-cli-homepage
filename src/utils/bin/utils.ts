@@ -134,7 +134,7 @@ export const banner = (args?: string[]): string => {
 `;
 };
 
-export const staff = (args?: string[]): string => {
+export const staff = async (args?: string[]): Promise<string> => {
 	let msg = "";
 
 	msg +=
@@ -145,7 +145,7 @@ export const staff = (args?: string[]): string => {
 	msg +=
 		"임성후(백엔드d): 열정 넘치는 분들 덕분에 즐겁게 행사 준비할 수 있었습니다!! 글또 최고 ♡\n";
 	msg +=
-		"변성윤 : 여러분들이 모두 도와주시고, 와주셔서 모두 잘 만들 수 있었어요. 감사합니다\n";
+		"변성윤(글또요정): 여러분들이 모두 도와주시고, 와주셔서 모두 잘 만들 수 있었어요. 감사합니다\n";
 	msg +=
 		"김동인(백엔드b): 준비하는 과정이 재미있어서 행사가 더욱 기대됩니다! 고생했어요 다들!!\n";
 	msg +=
