@@ -26,7 +26,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ inputRef }) => {
 	return (
 		<>
 			<Head>
-				<title>[← Backspace; 더 멀리 나아가는 방법] 반상회</title>
+				<title>DAXI (Data•Ai taXI) 반상회</title>
 			</Head>
 			<div
 				className="overflow-hidden h-full rounded"

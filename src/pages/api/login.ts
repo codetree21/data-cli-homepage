@@ -65,7 +65,7 @@ export default async function handler(req, res) {
 	const userIdx = users.findIndex((user) => user === username);
 
 	if (userIdx !== -1) {
-		if (usersInfo[userIdx][1] === undefined) {
+		if (usersInfo[userIdx][1] === undefined || !usersInfo[userIdx][1].includes("2023")) {
 			updateUser(client, userIdx);
 		}
 
