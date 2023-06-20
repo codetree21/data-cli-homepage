@@ -1,5 +1,6 @@
 import * as bin from "./index";
 import { DEFAULT_USER } from "../../utils/shellProvider";
+import exp from "constants";
 
 export const help = async (args: string[]): Promise<string> => {
 	const commands = Object.keys(bin).sort().join(", ");
@@ -81,7 +82,7 @@ export const cotemaster = async (args: string[]): Promise<string> => {
 };
 
 export const review = async (args: string[]): Promise<string> => {
-	window.open("https://forms.gle/EAgcQh9gE9mpiMwQ7");
+	window.open("https://forms.gle/3Skd3y8MsUov9Xnv6");
 
 	return "Opening Review Form...";
 };
@@ -147,4 +148,10 @@ export const staff = async (args?: string[]): Promise<string> => {
 		"김지환(ai-머신러닝b): 별로 한게 없는데 다른 준비위 분들이 너무 일잘러셔서 버스타는 택시운전사가 되어버렸네요 :bus: 다들 고생 많으셨습니다!";
 	
 	return msg;
+};
+
+export const timetable = async (args: string[]): Promise<string> => {
+	window.open("https://user-images.githubusercontent.com/48194852/246863248-8fe9a3d1-df8e-4c29-8292-a8d1f1a424c0.jpg\n");
+
+	return "Opening Review Form...";
 };
